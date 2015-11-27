@@ -24,7 +24,7 @@
       font-size: 150px;
     }
 
-    #roll {
+    #rollAll {
       font-size: 40px;
       padding: 20px 60px;
     }
@@ -48,9 +48,9 @@
       <span class="die" style="display:none;">&#9856;</span>
     </span>
   </div>
-  <button id="roll">Roll</button>
+  <button id="rollAll">Roll</button>
   <p>To re-roll a single die, click it.</p>
-  <select id="numberOfDice">
+  <select id="diceCount">
     <option value="1">1 die</option>
     <option value="2" selected>2 dice</option>
     <option value="3">3 dice</option>
@@ -76,6 +76,10 @@
       return document.getElementById(id);
     }
 
+    function byClass(className) {
+      return document.getElementsByClassName(className);
+    }
+
     function forEach(list, func) {
       for(var i = 0; i < list.length; i++) {
         func(list[i]);
@@ -88,10 +92,12 @@
       }
     }
 
+    // Return a secure random number from 0 through 5.
     function random6() {
       var array = new Uint8Array(1);
-      array[0] = 252; // Last multiple of 6 below 256...to ensure no bias.
-      while ( array[0] >= 252) {
+      // Re-grab a number until we can take the number mod 6 with no bias.
+      array[0] = 252; // Highest number divisible by 6 but below 256.
+      while (array[0] >= 252) {
         window.crypto.getRandomValues(array);
       }
       return array[0] % 6;
@@ -99,7 +105,6 @@
 
     function rolling(die) {
       var i = random6();
-
       die.innerHTML = dieGlyphs[i];
 
       if((new Date()).getTime() < die.rollStop) {
@@ -107,19 +112,20 @@
       }
     }
 
-    function rollDie(e) {
-      var die = this;
-      die.rollStop = (new Date()).getTime() + rollMsMin + Math.random() * rollMsRange;
+    function roll(die) {
+      die.rollStop = (new Date()).getTime() + rollMsMin + Math.random()*rollMsRange;
       rolling(die);
     }
 
-    forEach(document.getElementsByClassName("die"), function (die) {
-      die.onclick = rollDie;
+    // Roll a single die when clicked.
+    forEach(byClass("die"), function (die) {
+      die.onclick = function (e) { roll(this); };
     });
 
-    byId("numberOfDice").onchange = function () {
+    // Show/hide dice when a count is selected from the dropdown.
+    byId("diceCount").onchange = function () {
       var c = parseInt(this.value);
-      forEachWithIndex(document.getElementsByClassName("die"), function (die, i) {
+      forEachWithIndex(byClass("die"), function (die, i) {
         if (i + 1 <= c) {
           die.style.display = "inline";
         } else {
@@ -128,13 +134,13 @@
       });
     };
 
-    byId("roll").onclick = function () {
-      forEach(document.getElementsByClassName("die"), function (die) {
-        rollDie.apply(die);
-      });
+    // Roll all dice when "Roll" button is clicked.
+    byId("rollAll").onclick = function () {
+      forEach(byClass("die"), roll);
     };
 
-    byId("roll").click();
+    // Roll all dice when page loads.
+    byId("rollAll").click();
   </script>
 </body>
 </html>
