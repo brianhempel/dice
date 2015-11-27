@@ -1,0 +1,130 @@
+<html>
+<head>
+  <title>
+    Secure Random Dice Roller
+  </title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    h1 {
+      padding: 0.5em 0 0;
+      margin: 0;
+      font-size: 75px;
+    }
+
+    .die {
+      font-size: 150px;
+    }
+
+    #roll {
+      font-size: 40px;
+      padding: 20px 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fair Dice</h1>
+  <div id="dice">
+    <span class="die">&#9856;</span>
+    <span class="die">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+    <span class="die" style="display:none;">&#9856;</span>
+  </div>
+  <button id="roll">Roll</button>
+  <p>To re-roll a single die, click it.</p>
+  <select id="numberOfDice">
+    <option value="1">1 die</option>
+    <option value="2" selected>2 dice</option>
+    <option value="3">3 dice</option>
+    <option value="4">4 dice</option>
+    <option value="5">5 dice</option>
+    <option value="6">6 dice</option>
+    <option value="7">7 dice</option>
+    <option value="8">8 dice</option>
+    <option value="9">9 dice</option>
+    <option value="10">10 dice</option>
+  </select>
+  <p>
+    These dice are completely fair and unpredictable!
+    Rolls are randomized using your device's secure random number generator.
+  </p>
+  <script>
+    dieGlyphs = ["&#9856;", "&#9857;", "&#9858;", "&#9859;", "&#9860;", "&#9861;"];
+    rollMsMin   = 150;
+    rollMsRange = 100;
+    rollFps     = 60;
+
+    function byId(id) {
+      return document.getElementById(id);
+    }
+
+    function forEach(list, func) {
+      for(var i = 0; i < list.length; i++) {
+        func(list[i]);
+      }
+    }
+
+    function forEachWithIndex(list, func) {
+      for(var i = 0; i < list.length; i++) {
+        func(list[i], i);
+      }
+    }
+
+    function random6() {
+      var array = new Uint8Array(1);
+      array[0] = 252; // Last multiple of 6 below 256...to ensure no bias.
+      while ( array[0] >= 252) {
+        window.crypto.getRandomValues(array);
+      }
+      return array[0] % 6;
+    }
+
+    function rolling(die) {
+      var i = random6();
+
+      die.innerHTML = dieGlyphs[i];
+
+      if((new Date()).getTime() < die.rollStop) {
+        window.setTimeout(rolling, 1000 / rollFps, die);
+      }
+    }
+
+    function rollDie(e) {
+      var die = this;
+      die.rollStop = (new Date()).getTime() + rollMsMin + Math.random() * rollMsRange;
+      rolling(die);
+    }
+
+    forEach(document.getElementsByClassName("die"), function (die) {
+      die.onclick = rollDie;
+    });
+
+    byId("numberOfDice").onchange = function () {
+      var c = parseInt(this.value);
+      forEachWithIndex(document.getElementsByClassName("die"), function (die, i) {
+        if (i + 1 <= c) {
+          die.style.display = "inline";
+        } else {
+          die.style.display = "none";
+        }
+      });
+    };
+
+    byId("roll").onclick = function () {
+      forEach(document.getElementsByClassName("die"), function (die) {
+        rollDie.apply(die);
+      });
+    };
+
+    byId("roll").click();
+  </script>
+</body>
+</html>
