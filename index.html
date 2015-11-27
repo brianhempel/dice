@@ -194,13 +194,16 @@
 
       die.replaceChild(svg, die.childNodes[0]);
 
-      if((new Date()).getTime() < die.rollStop) {
+      if((new Date()).getTime() < die.rollStopAt || die.redrawsToEnsure > 0) {
+        die.redrawsToEnsure -= 1;
         window.setTimeout(rolling, 1000 / rollFps, die);
       }
     }
 
     function roll(die) {
-      die.rollStop = (new Date()).getTime() + rollMsMin + Math.random()*rollMsRange;
+      die.rollStopAt      = (new Date()).getTime() + rollMsMin + Math.random()*rollMsRange;
+      // Redraw at least 7x so the dice feel like they rolled on slow devies.
+      die.redrawsToEnsure = 7;
       rolling(die);
     }
 
