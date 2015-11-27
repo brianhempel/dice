@@ -16,6 +16,10 @@
       font-size: 75px;
     }
 
+    .nowrap {
+      white-space: nowrap;
+    }
+
     .die {
       font-size: 150px;
     }
@@ -29,16 +33,20 @@
 <body>
   <h1>Fair Dice</h1>
   <div id="dice">
-    <span class="die">&#9856;</span>
-    <span class="die">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
-    <span class="die" style="display:none;">&#9856;</span>
+    <span class="nowrap">
+      <span class="die">&#9856;</span>
+      <span class="die">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+    </span>
+    <span class="nowrap">
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+      <span class="die" style="display:none;">&#9856;</span>
+    </span>
   </div>
   <button id="roll">Roll</button>
   <p>To re-roll a single die, click it.</p>
