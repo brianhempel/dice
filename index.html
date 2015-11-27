@@ -25,6 +25,7 @@
     }
 
     .die {
+      display: inline-block;
       width: 114px;
       height: 114px;
       margin: 10px;
@@ -36,24 +37,28 @@
       padding: 20px 60px;
       cursor: pointer;
     }
+
+    #diceTemplates {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h1>Fair Dice</h1>
   <div id="dice">
     <span class="nowrap">
-      <img class="die" src="images/die_1.svg">
-      <img class="die" src="images/die_2.svg">
-      <img class="die" src="images/die_3.svg" style="display:none;">
-      <img class="die" src="images/die_4.svg" style="display:none;">
-      <img class="die" src="images/die_5.svg" style="display:none;">
+      <span class="die"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
     </span>
     <span class="nowrap">
-      <img class="die" src="images/die_6.svg" style="display:none;">
-      <img class="die" src="images/die_1.svg" style="display:none;">
-      <img class="die" src="images/die_2.svg" style="display:none;">
-      <img class="die" src="images/die_3.svg" style="display:none;">
-      <img class="die" src="images/die_4.svg" style="display:none;">
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
+      <span class="die" style="display:none;"><svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114"><g transform="translate(-322.047 -462.181)"><rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/><circle cx="379.047" cy="519.181" r="11"/></g></svg></span>
     </span>
   </div>
   <button id="rollAll">Roll</button>
@@ -77,6 +82,67 @@
   <p>
     Authored by <a href="https://keybase.io/brianhempel">Brian Hempel</a>. Public Domain. Hosted on <a href="https://github.com/brianhempel/dice">Github</a>.
   </p>
+  <div id="diceTemplates">
+    <svg id="die1" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <circle cx="379.047" cy="519.181" r="11"/>
+     </g>
+    </svg>
+    <svg id="die2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <circle cx="-546.181" transform="rotate(-90)" cy="406.047" r="11"/>
+      <circle cx="-492.181" transform="rotate(-90)" cy="352.047" r="11"/>
+     </g>
+    </svg>
+    <svg id="die3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <g>
+       <circle cx="379.047" cy="519.181" r="11"/>
+       <circle cx="-546.181" transform="rotate(-90)" cy="406.047" r="11"/>
+       <circle cx="-492.181" transform="rotate(-90)" cy="352.047" r="11"/>
+      </g>
+     </g>
+    </svg>
+    <svg id="die4" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <g>
+       <circle transform="rotate(-90)" cy="406.047" cx="-492.181" r="11"/>
+       <circle cx="-546.181" transform="rotate(-90)" cy="406.047" r="11"/>
+       <circle cx="-492.181" transform="rotate(-90)" cy="352.047" r="11"/>
+       <circle transform="rotate(-90)" cy="352.047" cx="-546.181" r="11"/>
+      </g>
+     </g>
+    </svg>
+    <svg id="die5" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <g>
+       <circle cx="379.047" cy="519.181" r="11"/>
+       <circle transform="rotate(-90)" cy="406.047" cx="-492.181" r="11"/>
+       <circle cx="-546.181" transform="rotate(-90)" cy="406.047" r="11"/>
+       <circle cx="-492.181" transform="rotate(-90)" cy="352.047" r="11"/>
+       <circle transform="rotate(-90)" cy="352.047" cx="-546.181" r="11"/>
+      </g>
+     </g>
+    </svg>
+    <svg id="die6" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="114" width="114" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 114 114">
+     <g transform="translate(-322.047 -462.181)">
+      <rect stroke-linejoin="round" rx="8" ry="8" height="108" width="108" stroke="#000" y="465.181" x="325.047" stroke-width="6" fill="none"/>
+      <g>
+       <circle cy="519.181" cx="406.047" r="11"/>
+       <circle cx="352.047" cy="519.181" r="11"/>
+       <circle transform="rotate(-90)" cy="406.047" cx="-492.181" r="11"/>
+       <circle cx="-546.181" transform="rotate(-90)" cy="406.047" r="11"/>
+       <circle cx="-492.181" transform="rotate(-90)" cy="352.047" r="11"/>
+       <circle transform="rotate(-90)" cy="352.047" cx="-546.181" r="11"/>
+      </g>
+     </g>
+    </svg>
+  </div>
   <script>
     rollMsMin   = 150;
     rollMsRange = 100;
@@ -102,6 +168,15 @@
       }
     }
 
+    dice = [
+      byId("die1"),
+      byId("die2"),
+      byId("die3"),
+      byId("die4"),
+      byId("die5"),
+      byId("die6")
+    ]
+
     // Return a secure random number from 0 through 5.
     function random6() {
       var array = new Uint8Array(1);
@@ -115,8 +190,9 @@
 
     function rolling(die) {
       var i = random6();
+      var svg = dice[i].cloneNode(true);
 
-      die.src = "images/die_" + (i+1) + ".svg";
+      die.replaceChild(svg, die.childNodes[0]);
 
       if((new Date()).getTime() < die.rollStop) {
         window.setTimeout(rolling, 1000 / rollFps, die);
@@ -138,7 +214,7 @@
       var c = parseInt(this.value);
       forEachWithIndex(byClass("die"), function (die, i) {
         if (i + 1 <= c) {
-          die.style.display = "inline";
+          die.style.display = "inline-block";
         } else {
           die.style.display = "none";
         }
