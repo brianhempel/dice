@@ -20,8 +20,14 @@
       white-space: nowrap;
     }
 
+    #dice {
+      margin: 60px 0;
+    }
+
     .die {
-      font-size: 150px;
+      width: 114px;
+      height: 114px;
+      margin: 10px;
     }
 
     #rollAll {
@@ -34,18 +40,18 @@
   <h1>Fair Dice</h1>
   <div id="dice">
     <span class="nowrap">
-      <span class="die">&#9856;</span>
-      <span class="die">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
+      <img class="die" src="images/die_1.svg">
+      <img class="die" src="images/die_2.svg">
+      <img class="die" src="images/die_3.svg" style="display:none;">
+      <img class="die" src="images/die_4.svg" style="display:none;">
+      <img class="die" src="images/die_5.svg" style="display:none;">
     </span>
     <span class="nowrap">
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
-      <span class="die" style="display:none;">&#9856;</span>
+      <img class="die" src="images/die_6.svg" style="display:none;">
+      <img class="die" src="images/die_1.svg" style="display:none;">
+      <img class="die" src="images/die_2.svg" style="display:none;">
+      <img class="die" src="images/die_3.svg" style="display:none;">
+      <img class="die" src="images/die_4.svg" style="display:none;">
     </span>
   </div>
   <button id="rollAll">Roll</button>
@@ -70,7 +76,6 @@
     Authored by <a href="https://keybase.io/brianhempel">Brian Hempel</a>. Public Domain. Hosted on <a href="https://github.com/brianhempel/dice">Github</a>.
   </p>
   <script>
-    dieGlyphs   = ["&#9856;", "&#9857;", "&#9858;", "&#9859;", "&#9860;", "&#9861;"];
     rollMsMin   = 150;
     rollMsRange = 100;
     rollFps     = 60;
@@ -108,7 +113,8 @@
 
     function rolling(die) {
       var i = random6();
-      die.innerHTML = dieGlyphs[i];
+
+      die.src = "images/die_" + (i+1) + ".svg";
 
       if((new Date()).getTime() < die.rollStop) {
         window.setTimeout(rolling, 1000 / rollFps, die);
